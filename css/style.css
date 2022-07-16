@@ -30,6 +30,8 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #333;
+    perspective: 800px;
+    transform-style: preserve-3d;
 }
 
 .ghost {
@@ -37,7 +39,7 @@ body {
     width: 160px;
     height: 200px;
     /* background-color: rebeccapurple; */
-    animation: float 4s ease-in-out infinite;
+    animation: float 4s ease-in-out 1s infinite alternate;
 }
 
 @keyframes float {
@@ -45,10 +47,16 @@ body {
     0%,
     100% {
         top: 0px;
+        transform: rotate3d(0, 1, 0, -30deg);
     }
 
     50% {
         top: -40px;
+        transform: rotate3d(0, 1, 0, 0deg);
+    }
+
+    75% {
+        transform: rotate3d(0, 1, 0, 30deg);
     }
 }
 
